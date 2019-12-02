@@ -10,7 +10,7 @@
 
 <body onload='getRecipes("")'>
 
-<!--     <div id="loading"></div> -->
+    <div id="loading"></div>
 
     <nav class="navbar navbar-expand-md bg-dark fixed-top navbar-dark">
         <a class="navbar-brand" href="./index.html">DELICIOUS</a>
@@ -56,6 +56,7 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search you food here" aria-label="Search"
             id="search-input">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button">Search</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button" onclick="cleandata()">x</button>
         <br><br>
         </div> 
     <div id="recipes" ></div>
@@ -83,7 +84,7 @@
     </center>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script src="./script.js"></script>
 </body>
