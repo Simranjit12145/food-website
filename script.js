@@ -6,11 +6,10 @@ const apiKey = "a04da6cfd96bad9e15d82c5ce59d012a";
 
 // Recipes
 function getRecipes(query) {
-    console.log("ss");
     $.ajax({
         url: `${host}/search?app_id=${appId}&app_key=${apiKey}&q=${query}`,
         success: function (result) {
-//             perloadfunction();
+            perloadfunction();
             console.log(result);
             index = 0;
             data = result;
@@ -19,11 +18,19 @@ function getRecipes(query) {
     });
 }
 
-// function perloadfunction() {
-//     var load = document.getElementById('loading');
-//     loading.style.display = 'none';
+function cleandata()
+{
+    document.getElementById("recipes").innerHTML="";
+    document.getElementById("recipes").style="";
+    document.getElementById("search-input").value="";
+}
 
-// }
+
+function perloadfunction() {
+    var load = document.getElementById('loading');
+    loading.style.display = 'none';
+
+}
 
 function kFormatter(num) {
     return Math.abs(num) > 999 ?
@@ -38,16 +45,16 @@ function loadRecipes(result) {
         $("#recipes").append(
             `<div class="recipe-card card" style="width: 18rem;">
             <a href="${recipe.recipe.url}" class="btn">
-                    <img src="${recipe.recipe.image}" class="card-img-top" alt="...">
+                <img src="${recipe.recipe.image}" class="card-img-top" alt="...">
             </a>
-  <div class="card-body">
-    <h5 class="card-title">${recipe.recipe.label}</h5>
-    <p class="card-text">Calories: ${kFormatter(recipe.recipe.calories)}cal.</p>
-    <button class="btn btn-success" onclick=openModalforIngredients(${index}) id="ingredientsbtn" data-toggle="modal" data-target="#mailModal">Ingredients</button>
-    <button class="btn btn-success" onclick=openModalforNutrient(${index}) id="Nutrientbtn" data-toggle="modal" data-target="#mailModal">Nutrient</button>
-   
-  </div>
-</div>`
+            <div class="card-body">
+                <h5 class="card-title">${recipe.recipe.label}</h5>
+                <p class="card-text">Calories: ${kFormatter(recipe.recipe.calories)}cal.</p>
+                <button class="btn btn-success" onclick=openModalforIngredients(${index}) id="ingredientsbtn" data-toggle="modal" data-target="#mailModal">Ingredients</button>
+                <button class="btn btn-success" onclick=openModalforNutrient(${index}) id="Nutrientbtn" data-toggle="modal" data-target="#mailModal">Nutrient</button>
+            
+            </div>
+        </div>`
         );
         index++;
         $("#recipes").show();
@@ -55,7 +62,6 @@ function loadRecipes(result) {
 }
 
 // Nutrition Analysis
-
 function getNutrientsAnalysis(data) {
     $.ajax({
         type: "POST",
