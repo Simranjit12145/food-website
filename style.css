@@ -1,6 +1,10 @@
 body {
   margin: 0;
   padding: 0;
+  background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0)),url('./food.gif') ;
+  background-size: 100% 450%;
+  background-repeat: no-repeat;
+  
 }
 
 #loading {
@@ -53,6 +57,7 @@ body {
 
 .navbar-nav {
   text-align: center;
+  padding-left:950px;
 }
 
 .navbar-toggler {
@@ -122,8 +127,11 @@ body {
 
 .recipe-card {
   float: left;
-  padding: 1em;
-  margin: 0.2em;
+  padding: 0.1em;
+  margin: 15px;
+  height: 450px;
+  width:200px;
+
 }
 
 .pic-card {
@@ -154,4 +162,13 @@ footer {
   left: 45%;
   border-radius: 0.5em;
   padding: 0.2em 1em 0.2em 1em;
+}
+
+#ab{
+  padding-left:600px;
+}
+
+#ab #search-button{
+   
+   background-color:yellow;
 }
